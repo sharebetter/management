@@ -1,10 +1,13 @@
 import React from 'react'
-import { Row,Col } from "antd"
+import { Row, Col, Breadcrumb } from "antd"
+import { NavLink, withRouter } from 'react-router-dom';
 import './index.less'
 import Util from '../../utils/utils'
 import axios from '../../axios'
 class Header extends React.Component{
-    state={}
+    state={
+
+    }
     componentWillMount(){
         this.setState({
             userName:'shareBetter'
@@ -47,10 +50,12 @@ class Header extends React.Component{
                     </Col>
                 </Row>
                 <Row className="breadcrumb">
-                    <Col span="4" className="breadcrumb-title">
-                        首页
+                    <Col span="6" className="breadcrumb-title">
+                        <Breadcrumb className="breadcrumb-title-link">
+                            <Breadcrumb.Item><NavLink to="/">首页</NavLink></Breadcrumb.Item>
+                        </Breadcrumb>
                     </Col>
-                    <Col span="20" className="weather">
+                    <Col span="18" className="weather">
                         <span className="date">{this.state.sysTime}</span>
                         <span className="weather-img">
                             <img src={this.state.dayPictureUrl} alt="" />
@@ -64,5 +69,4 @@ class Header extends React.Component{
         );
     }
 }
-
-export default Header;
+export default withRouter(Header);

@@ -37,7 +37,7 @@ class NavLeft extends React.Component {
                 <NavLink to="/home" onClick={()=>console.log('/home-click')}>
                     <div className="logo">
                         <img src="/assets/logo-ant.svg" alt=""/>
-                        <span>Manager Server</span>
+                        <span>Management</span>
                     </div>
                 </NavLink>
                 <Menu

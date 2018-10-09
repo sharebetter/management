@@ -1,0 +1,15 @@
+.rdw-editor-main{
+    border-top: 1px solid #e7e7e7;
+    margin-top: -6px;
+}
+.wrapperClassName {
+    border: 1px solid #e7e7e7;
+    border-radius: 6px;
+}
+.DraftEditor-editorContainer{
+    padding-left:8px;
+    min-height: 100px;
+}
+/* .editorClassName:hover, .editorClassName:focus{
+    border:1px solid #40a9ff;
+} */
