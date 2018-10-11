@@ -26,8 +26,8 @@ export default class Axios {
         let baseApi = ' https://easy-mock.com/mock/5bbb0f2a47fcad6715a0a7a7/management';
         return new Promise((resolve,reject)=>{
             axios({
-                url:options.url,
-                method:'get',
+                url: options.url,
+                method: options.method || 'get',
                 baseURL:baseApi,
                 timeout:5000,
                 params: (options.data && options.data.params) || ''
@@ -58,10 +58,31 @@ export default class Axios {
                     loading = document.getElementById('ajaxLoading');
                     loading.style.display = 'none';
                 }
+                options.method === 'post'?
                 Modal.error({
                     title:"提示",
-                    content:'数据获取超时'
+                    content:'数据提交超时'
+                }):
+                Modal.error({
+                    title:"提示",
+                    content:'数据获取超时,启用本地mock数据'
                 })
+                // mock数据获取失败时，用本地mock数据代替
+                switch(options.url){
+                    case 'user-list':
+                        return resolve(require('../mock/user-list.js'));
+                        break;
+                    case '/order-list':
+                        return resolve(require('../mock/order-list.js'));
+                        break;
+                    case '/table-list':
+                        return resolve(require('../mock/table-list.js'));
+                        break;
+                    case '/open_city':
+                        return resolve(require('../mock/open-city.js'));
+                        break;
+                }
+
             })
         });
     }

@@ -74,9 +74,11 @@ export default class BasicTable extends React.Component{
             }
         }).then((res)=>{
             if(res.code == 0){
+                //点击行选中radio，key值要这样指定（key值从0开始，对应第一行，以此类推）
                 res.result.map((item, index) => {
                     item.key = index;
                 })
+
                 this.setState({
                     dataSource2:res.result,
                     selectedRowKeys:[],
