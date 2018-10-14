@@ -1,6 +1,13 @@
 import JsonP from 'jsonp'
 import axios from 'axios'
 import { Modal } from 'antd'
+//引入mock数据
+import userList from '../mock/user-list.js';
+import orderList from '../mock/order-list.js';
+import tableList from '../mock/table-list.js';
+import openCity from '../mock/open-city.js';
+import roleList from '../mock/role-list.js';
+import roleUserList from '../mock/role-user-list.js';
 
 export default class Axios {
     static jsonp(options) {
@@ -19,7 +26,7 @@ export default class Axios {
     static ajax(options){
         //自己定义的全局loading,只要进行ajax请求就触发 isShowLoading由用户决定是否要显示loading
         let loading;
-        if (options.data && options.data.isShowLoading !== false){
+        if (options.data && options.data.isShowLoading === true){
             loading = document.getElementById('ajaxLoading');
             loading.style.display = 'block';
         }
@@ -32,7 +39,7 @@ export default class Axios {
                 timeout:5000,
                 params: (options.data && options.data.params) || ''
             }).then((response)=>{
-                if (options.data && options.data.isShowLoading !== false) {
+                if (options.data && options.data.isShowLoading === true) {
                     //自己定义的全局loading, 进行关闭
                     loading = document.getElementById('ajaxLoading');
                     loading.style.display = 'none';
@@ -68,18 +75,25 @@ export default class Axios {
                     content:'数据获取超时,启用本地mock数据'
                 })
                 // mock数据获取失败时，用本地mock数据代替
+
                 switch(options.url){
                     case 'user-list':
-                        return resolve(require('../mock/user-list.js'));
+                        return resolve(userList);
                         break;
                     case '/order-list':
-                        return resolve(require('../mock/order-list.js'));
+                        return resolve(orderList);
                         break;
                     case '/table-list':
-                        return resolve(require('../mock/table-list.js'));
+                        return resolve(tableList);
                         break;
                     case '/open_city':
-                        return resolve(require('../mock/open-city.js'));
+                        return resolve(openCity);
+                        break;
+                    case '/role-list':
+                        return resolve(roleList);
+                        break;
+                    case '/role-user-list':
+                        return resolve(roleUserList);
                         break;
                 }
 

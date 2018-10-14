@@ -81,7 +81,7 @@ class ETable extends React.Component {
             selectedRowKeys,
             onChange: this.onSelectChange,
             onSelect:(record, selected, selectedRows)=>{
-                console.log('...')
+                // console.log('...')
             },
             onSelectAll:this.onSelectAll
         };
