@@ -3,7 +3,14 @@
 ##### npm install 安装依赖
 ##### npm start 启动项目
 
-![消息通知](http://pexpn9gr1.bkt.clouddn.com/manage1.jpg)
-![信息页面](http://pexpn9gr1.bkt.clouddn.com/manage2.jpg)
-![用户列表](http://pexpn9gr1.bkt.clouddn.com/manage3.jpg)
-![gift](http://pexpn9gr1.bkt.clouddn.com/management.gif)
+#### 用户信息编辑
+![信息编辑](https://github.com/sharebetter/management/tree/master/itemImgs/manage.png)
+
+#### 用户列表
+![用户列表](https://github.com/sharebetter/management/tree/master/itemImgs/manage2.png)
+
+#### 用户权限管理
+![用户权限管理](https://github.com/sharebetter/management/tree/master/itemImgs/manage3.png)
+
+#### GIT
+![gift](https://github.com/sharebetter/management/tree/master/itemImgs/management.gif)
